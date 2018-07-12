@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 import {BarChart} from 'react-easy-chart';
 
 const data = [
-  {x: 'A', y: 20, color: 'green'},
-  {x: 'B', y: 30, color: 'purple'},
-  {x: 'C', y: 40, color: 'purple'},
-  {x: 'D', y: 20, color: 'purple'},
-  {x: 'E', y: 40, color: 'purple' },
-  {x: 'F', y: 25, color: 'purple'},
-  {x: 'G', y: 5, color: 'purple'}
+  {x: 'JavaScript', y: 1, color: 'orange'},
+  {x: 'NodeJS', y: 1, color: 'green'},
+  {x: 'ReactJS', y: .8, color: 'purple'},
+  {x: 'React Native', y: .4, color: 'purple'},
+  {x: 'HTML', y: 2, color: 'purple' },
+  {x: 'SASS', y: .5, color: 'purple'},
+  {x: 'CSS', y: 2, color: 'purple'},
+  {x: 'C#', y: .2, color: 'purple'},
+  {x: 'Unity', y: .2, color: 'purple'},
 ]
 
-export default class Chart extends React.Component {
+export default class Chart extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -20,10 +22,16 @@ export default class Chart extends React.Component {
   }
   render(){
     return (
-      <BarChart
-        colorBars
-        data={this.state.data}
-      />
+
+      <div style={{display: 'inline-block'}}>
+        <BarChart
+          axes
+          colorBars
+          height={400}
+          width={900}
+          data={this.state.data}
+        />
+      </div>
     )
   }
 }
