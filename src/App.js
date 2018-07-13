@@ -1,16 +1,33 @@
 import React, { Component } from 'react'
-// import logo from './logo.svg';
-import './styles/css/App.css';
+import {Preload} from 'react-preload'
 
+import './styles/css/App.css';
 import Chart from './components/Chart.js'
-class App extends Component {
+
+const images = [
+  require('./assets/images/macbook.jpg')
+]
+
+export default class App extends Component {
+  _handleImageLoadError(){
+    console.log('React Application is not loading correctly.');
+  }
   render() {
     return (
+      <Preload
+        loadingIndicator={loadingIndicator}
+        images={images}
+        autoResolveDelay={3000}
+        onError={this._handleImageLoadError}
+        onSuccess={this._handleImageLoadSuccess}
+        resolveOnError={true}
+        mountChildren={true}
+      >
       <div className="App">
       <Chart />
+        <img className="App-logo-spin" source={require('./logo.svg')} />
       </div>
+      </Preload>
     );
   }
 }
-
-export default App;
